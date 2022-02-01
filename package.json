@@ -4,17 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "scss": "sass src/sass:dist/css",
+    "scss": "sass src/sass/app.scss:dist/css/app.css",
     "concat:js": "concat-glob-cli -f src/js/**/*.js -o dist/js/bundle.js",
-    "cssmin": "cleancss -o dist/css/index.min.css dist/css/index.css",
+    "cssmin": "cleancss -o dist/css/app.min.css dist/css/app.css",
     "uglify": "uglifyjs -o dist/js/bundle.min.js dist/js/bundle.js",
     "build:css": "npm run scss && npm run cssmin",
     "build:js": "npm run concat:js && npm run uglify",
     "build": "npm run build:css && npm run build:js",
-    "watch:css": "onchange 'src/sass/*.scss' -- npm run build:css",
-    "watch:js": "onchange 'src/js/*.js' -- npm run build:js",
+    "watch:css": "onchange 'src/sass/**/*.scss' -- npm run build:css",
+    "watch:js": "onchange 'src/js/**/*.js' -- npm run build:js",
     "reload": "reload -b",
-    "watch": "npm run reload & npm run watch:css & npm run watch:js"
+    "watch": "npm-run-all --parallel watch:js watch:css reload"
   },
   "repository": {
     "type": "git",
