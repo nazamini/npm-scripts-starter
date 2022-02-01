@@ -4,4 +4,11 @@ To use this for your project you can copy the contents of package.json into your
 
 Alternatively you can fork the whole repo.
 
-run `npm install` for it to work
+run the following:
+`npm install`
+
+To build stylesheet and js:
+`npm run build`
+
+To watch changes:
+`npm run watch`
